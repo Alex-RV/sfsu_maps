@@ -3,10 +3,11 @@ import { Loader } from "@googlemaps/js-api-loader"
 
 export default function Map() {
   let map;
+  const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string;
 
   useEffect(() => {
     const loader = new Loader({
-      apiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY as string,
+      apiKey: GOOGLE_MAPS_API_KEY,
       version: "weekly",
     });
 
@@ -17,29 +18,18 @@ export default function Map() {
       if (mapElement) {
         map = new google.maps.Map(mapElement, {
           center: {
-            lat: -34.397,
-            lng: 150.644,
+            lat: 37.722169, 
+            lng: -122.478443,
           },
-          // scrollwheel: false,
-          zoom: 8,
-          disableDefaultUI: true,
-        //   styles: [
-        //     {
-        //       featureType: "poi.business",
-        //       stylers: [{ visibility: "off" }],
-        //     },
-        //     {
-        //       featureType: "poi",
-        //       elementType: "labels.icon",
-        //       stylers: [{ visibility: "off" }],
-        //     },
-        // ]
-      });
+          zoom: 17,
+        });
       }
     });
   }, []);
 
   return (
-    <div id="map" style={{ width: '100%', height: '400px' }}></div>
+    <div id="map" style={{ width: '100%', height: '400px' }}>
+      
+    </div>
   );
 }
