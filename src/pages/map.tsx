@@ -22,13 +22,19 @@ export default function Map() {
             lng: -122.478443,
           },
           zoom: 17,
+          mapTypeControl: true,
+      mapTypeControlOptions: {
+        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+        mapTypeIds: ["roadmap", "terrain"],
+      },
+      
         });
       }
     });
   }, []);
 
   return (
-    <div id="map" style={{ width: '100%', height: '400px' }}>
+    <div id="map" style={{ width: '100%', height: '600px' }}>
       
     </div>
   );
