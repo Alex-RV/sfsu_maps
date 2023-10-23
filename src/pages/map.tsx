@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
-import { Loader } from "@googlemaps/js-api-loader"
+import { Loader } from "@googlemaps/js-api-loader";
+import markersData from '../../config/markers.json'; 
 
 export default function Map() {
-  let map;
+  let map: google.maps.Map | undefined;
   const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string;
+  const MAP_ID_GOOGLE_MAPS = process.env.NEXT_PUBLIC_MAP_ID_GOOGLE_MAPS as string;
 
   useEffect(() => {
     const loader = new Loader({
@@ -21,73 +23,24 @@ export default function Map() {
             lat: 37.722169, 
             lng: -122.478443,
           },
-          zoom: 16, // Adjust the zoom level.
-          mapTypeControl: false, // Remove the map type control.
-          styles: [
-            {
-              featureType: "poi",
-              elementType: "labels",
-              stylers: [{ visibility: "off" }], // Hide labels for points of interest.
-            },
-            {
-              featureType: "poi",
-              elementType: "geometry",
-              stylers: [{ visibility: "off" }], // Hide points of interest.
-            },
-            {
-              featureType: "road",
-              elementType: "labels",
-              stylers: [{ visibility: "on" }], // Show road labels.
-            },
-            {
-              featureType: "road",
-              elementType: "geometry",
-              stylers: [
-                { visibility: "on" }, // Show roads.
-                { color: "#dcdcdc" }, // Lighten road color.
-              ],
-            },
-            {
-              featureType: "landscape",
-              elementType: "geometry",
-              stylers: [
-                { visibility: "on" },
-                { color: "#f2f2f2" },
-              ],
-            },
-            {
-              featureType: "landscape.man_made",
-              elementType: "geometry",
-              stylers: [
-                { visibility: "on" }, // Show human-made landscape.
-              ],
-            },
-          ],
+          zoom: 16,
+          mapTypeControl: false,
+          mapId: MAP_ID_GOOGLE_MAPS,
         });
 
-        // Add markers for the start and end points
-        const startMarker = new google.maps.Marker({
-          position: {
-            lat: 37.72190204203244,
-            lng: -122.47684565585695,
-          },
-          map: map,
-          title: 'Start Point',
-        });
-
-        const endMarker = new google.maps.Marker({
-          position: {
-            lat: 37.72302760931965,
-            lng: -122.48173155228987,
-          },
-          map: map,
-          title: 'End Point',
+        // Iterate through the markersData and create markers
+        markersData.forEach(marker => {
+          new google.maps.Marker({
+            position: { lat: marker.lat, lng: marker.lng },
+            map,
+            title: marker.name,
+          });
         });
 
         // Define the route
         const directionsService = new google.maps.DirectionsService();
         const directionsRenderer = new google.maps.DirectionsRenderer({
-          map: map,
+          map, // Use the map variable defined above
         });
 
         const request = {
