@@ -1,16 +1,19 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-
+import background from './public/Components/background.png'
+import Image1 from './public/Components/Image1.png'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
   return (
     <main
       className=""
     ><div id="LogInPageRoot" className="flex flex-col pb-5 w-full">
     <div
-      id="Image1"
-      className="bg-[undefined] bg-cover bg-50%_50% bg-blend-overlay bg-no-repeat flex flex-row justify-between mt-[-12px] h-[984px] shrink-0 items-start pt-48 pl-24 pr-32"
+      id="background"
+      className="bg-purple self-stretch relative bg-cover bg-50%_50% bg-blend-overlay bg-no-repeat flex flex-row justify-between mt-[-12px] h-[984px] shrink-0 items-start pt-48 pl-24 pr-32"
+      style = {{backgroundImage: 'url(${backgorund})'}}
     >
       <div className="text-[96px] font-['Ramabhadra'] tracking-[-1.06] leading-[144px] text-white w-1/2">
         Are you lost? It happens to the best of us.{" "}
@@ -18,7 +21,7 @@ export default function Home() {
       <div className="flex flex-col justify-between mt-4 gap-[109px] items-start">
         <div className="flex flex-row gap-8 w-[421px] items-start">
           <div
-            id="Image2"
+            id="Image1"
             className="bg-[undefined] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-col items-start pt-1 pb-0"
           >
             <img src="" id="GatorLogo" className="mr-0" />
