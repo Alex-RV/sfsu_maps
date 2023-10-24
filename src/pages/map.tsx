@@ -14,6 +14,7 @@ export default function Map() {
   const directionsRendererRef = React.useRef<google.maps.DirectionsRenderer | null>(null);
 
   useEffect(() => {
+    console.log(GOOGLE_MAPS_API_KEY)
     const loader = new Loader({
       apiKey: GOOGLE_MAPS_API_KEY,
       version: "weekly",
