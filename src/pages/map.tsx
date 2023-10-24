@@ -29,7 +29,7 @@ export default function Map() {
             lat: 37.722169,
             lng: -122.478443,
           },
-          zoom: 16,
+          zoom: 17,
           mapTypeControl: false,
           mapId: MAP_ID_GOOGLE_MAPS,
         });
