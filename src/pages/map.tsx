@@ -14,7 +14,6 @@ export default function Map() {
   const directionsRendererRef = React.useRef<google.maps.DirectionsRenderer | null>(null);
 
   useEffect(() => {
-    console.log(GOOGLE_MAPS_API_KEY)
     const loader = new Loader({
       apiKey: GOOGLE_MAPS_API_KEY,
       version: "weekly",
@@ -42,10 +41,17 @@ export default function Map() {
 
         // Add markers from markersData
         markersData.forEach(marker => {
+          // Create a custom icon for each marker based on the icon name
+          const customIcon = {
+            url: marker.icon, // Assuming that icon contains the URL to the custom icon
+            scaledSize: new google.maps.Size(32, 32), // Adjust size as needed
+          };
+
           new google.maps.Marker({
             position: { lat: marker.lat, lng: marker.lng },
             map: newMap,
             title: marker.name,
+            icon: customIcon,
           });
         });
       }

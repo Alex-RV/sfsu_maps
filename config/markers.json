@@ -1,13 +1,14 @@
 [
-    {
-      "name": "Marker 1",
-      "lat": 37.72234912774858, 
-      "lng": -122.47856743039954
-    },
-    {
-      "name": "Marker 2",
-      "lat": 37.72302760931965,
-      "lng": -122.48173155228987
-    }
-  ]
-  
+  {
+    "name": "Marker 1",
+    "lat": 37.72234912774858,
+    "lng": -122.47856743039954,
+    "icon": "https://maps.google.com/mapfiles/kml/paddle/blu-blank.png"
+  },
+  {
+    "name": "Marker 2",
+    "lat": 37.72302760931965,
+    "lng": -122.48173155228987,
+    "icon": "https://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png"
+  }
+]
