@@ -47,11 +47,21 @@ export default function Map() {
             scaledSize: new google.maps.Size(32, 32), // Adjust size as needed
           };
 
-          new google.maps.Marker({
+          const markerObj = new google.maps.Marker({
             position: { lat: marker.lat, lng: marker.lng },
             map: newMap,
             title: marker.name,
             icon: customIcon,
+          });
+
+          // Create an InfoWindow for each marker
+          const infoWindow = new google.maps.InfoWindow({
+            content: `<div><h3>${marker.name}</h3><p>${marker.description}</p><img src="${marker.image}" alt="Marker Image" width="100px"></div>`
+          });
+
+          // Attach a click event to open the InfoWindow when the marker is clicked
+          markerObj.addListener("click", () => {
+            infoWindow.open(newMap, markerObj);
           });
         });
       }
