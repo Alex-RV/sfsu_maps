@@ -1,53 +1,40 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import background from './public/Components/background.png'
-import Image1 from './public/Components/Image1.png'
-const inter = Inter({ subsets: ['latin'] })
+import React from 'react';
 
 export default function Home() {
+  const shouldSetBackground = true; 
+
+  const dynamicBackgroundClass = shouldSetBackground ? 'bg-purple-500' : 'bg-purple-500';
 
   return (
-    <main
-      className=""
-    ><div id="LogInPageRoot" className="flex flex-col pb-5 w-full">
-    <div
-      id="background"
-      className="bg-purple self-stretch relative bg-cover bg-50%_50% bg-blend-overlay bg-no-repeat flex flex-row justify-between mt-[-12px] h-[984px] shrink-0 items-start pt-48 pl-24 pr-32"
-      style = {{backgroundImage: 'url(${backgorund})'}}
-    >
-      <div className="text-[96px] font-['Ramabhadra'] tracking-[-1.06] leading-[144px] text-white w-1/2">
-        Are you lost? It happens to the best of us.{" "}
-      </div>
-      <div className="flex flex-col justify-between mt-4 gap-[109px] items-start">
-        <div className="flex flex-row gap-8 w-[421px] items-start">
-          <div
-            id="Image1"
-            className="bg-[undefined] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-col items-start pt-1 pb-0"
-          >
-            <img src="" id="GatorLogo" className="mr-0" />
+    <main className="min-h-screen flex items-center justify-center bg-purple">
+      <div id="LogInPageRoot" className="flex flex-col items-center">
+        <div
+          id="background"
+          className={`bg-cover bg-center bg-no-repeat h-screen w-full relative ${dynamicBackgroundClass}`}
+          style={{ backgroundImage: `url('./assets/background.png')` }}
+        >
+          <div className="text-6xl font-ramabhadra text-white w-1/2 text-center mt-48">
+            Are you lost? It happens to the best of us.
           </div>
-          <div className="text-5xl font-['Roboto_Mono'] font-medium tracking-[-0.91] leading-[72px] text-[#ffa629] mt-4 w-2/3">
-            SF_MAPS
-          </div>
-        </div>
-        <div className="flex flex-col gap-12 w-[480px] h-40 shrink-0 items-start">
-          <div className="bg-white self-stretch relative flex flex-col justify-center items-end pt-5 pb-4 px-8 rounded-[20px]">
-            <img
-              src=""
-              id="GoogleLogo"
-              className="w-24 h-16 absolute top-1 left-2"
-            />
-            <div className="text-center text-3xl font-['Open_Sans'] font-bold tracking-[-0.35] leading-[48px] relative">
-              Continue with Google.
+          <div className="flex flex-col items-center mt-4 space-y-12">
+            <div className="flex items-center space-x-8">
+              <div className="bg-cover bg-center bg-no-repeat w-32 h-32"></div>
+              <div className="text-5xl font-roboto-mono font-medium text-orange mt-4">
+                SF_MAPS
+              </div>
+            </div>
+            <div className="w-[480px] h-40 bg-white rounded-lg flex items-center justify-end px-8">
+              <img src="" alt="Google Logo" className="w-24 h-16 absolute top-1 left-2" />
+              <div className="text-3xl font-open-sans font-bold text-center relative">
+                Continue with Google.
+              </div>
+            </div>
+            <div className="text-xl font-ramabhadra text-[#4ae7ff] ml-6 w-3/5">
+              Continue as guest.
             </div>
           </div>
-          <div className="text-xl font-['Ramabhadra'] tracking-[-0.22] leading-[30px] text-[#0dff7c] ml-6 w-3/5">
-            Continue as guest.
-          </div>
         </div>
       </div>
-    </div>
-  </div>
     </main>
-  )
+  );
 }
