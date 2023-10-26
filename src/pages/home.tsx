@@ -5,11 +5,14 @@ export default function home() {
     <div>
       home
       <style>
-        div {
+        <div>
+
         width: auto;
         height: 300px;
         background-color: purple;
-        }
+
+          </div> 
+        
       </style>
     </div>
   )
