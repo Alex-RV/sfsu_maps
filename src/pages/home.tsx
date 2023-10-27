@@ -97,7 +97,7 @@ export default function home() {
   return (
     <div id="contol bar" className="w-full bg-violet-500 fixed top-0 left-0" style={{height:'5vh'}}>
       <div id="logo and title" className="flex items-left">
-        <img style={{ backgroundImage: `url('./public/assets/gator_logo.png')`, position: 'relative', left: '3.2vh', top: '0', width: '5vh', height: '5vh'}}  alt = "GatorLogo"/>
+        <img style={{/*backgroundImage: `url('./public/assets/gator_logo.png')`,*/ position: 'relative', left: '3.2vh', top: '0', width: '5vh', height: '5vh'}}  alt = "GatorLogo"/>
         <div id ="title" style={{position: 'relative', left: '4vh', top: '0', fontSize:'3vh'}}>SF_Maps</div>
       </div>
       <div id="home functions" className="w-full h-screen bg-violet-900 ">
