@@ -42,6 +42,14 @@ export default function home() {
     }
   }
 
+  function searchLocationByName(oldLocation : Location, name : string){
+    for(let i = 0; i < locations.length; i++){
+      if(locations[i].getName() == name){
+        oldLocation = locations[i];
+      }
+    }
+  }
+
   return (
     //contol bar
     <div id="contol bar" className="w-full fixed top-0 left-0" style={{backgroundColor: 'rgb(162, 103, 255)', height:'5vh'}}>
@@ -56,21 +64,21 @@ export default function home() {
         </div>
         {/* origin buttons */}
         <div id="set_origin" className=""
-        style={{position:'fixed', top:'7.5vh', right: '3vh', width: '74.25vh', height: '37.5vh'}}>
-          <p style={{marginBottom: '2.25vh'}}>Input your origin. Where are you now?</p>
+        style={{position:'fixed', top:'7.5vh', right: '3vh', width: '68.31vh', height: '34.5vh'}}>
+          <p style={{marginBottom: '2.07vh'}}>Input your origin. Where are you now?</p>
           <div style={{borderRadius: '5vh', outlineStyle: 'solid', outlineWidth: '0.5vh', outlineColor: 'rgb(139 92 246)',backgroundColor: 'rgb(232, 218, 255)'}}>
-          <input id='search origin' style={{width: '69.75vh', borderStyle: 'solid', borderColor: 'black', borderWidth: '0.15vh', color: 'black', marginLeft:'2.25vh', marginTop: '2.25vh', marginBottom: '3vh', borderRadius: '5vh'}}></input>
+          <input id='search origin' style={{width: '64.17vh', borderStyle: 'solid', borderColor: 'black', borderWidth: '0.15vh', color: 'black', marginLeft:'2.07vh', marginTop: '2.07vh', marginBottom: '2.07vh', borderRadius: '5vh'}}></input>
           <div id='buttons' style={{width:'fill', color: 'black'}}>
             <button id='mary_ward' onClick={() => searchLocation(origin, maryWard)} style={{margin: '0.2vh', color: 'black',}}>
-              <img src='./assets/residential.png' style={{width: '21.75vh', height: '21.75vh', marginLeft:'2.25vh'}}></img>
+              <img src='./assets/residential.png' style={{width: '20.01vh', height: '20.01vh', marginLeft:'2.07vh'}}></img>
               Mary Ward
             </button>
             <button id='city_eats' onClick={() => searchLocation(origin, cityEats)} style={{margin: '0.2vh', color: 'black',}}>
-            <img src='./assets/dining.png' style={{width: '21.75vh', height: '21.75vh', marginLeft:'2.25vh'}}></img>
+            <img src='./assets/dining.png' style={{width: '20.01vh', height: '20.01vh', marginLeft:'2.07vh'}}></img>
               City Eats
             </button>
             <button id='mashouf' onClick={() => searchLocation(origin, cityEats)} style={{margin: '0.2vh', color: 'black',}}>
-            <img src='./assets/gym.png' style={{width: '21.75vh', height: '21.75vh', marginLeft:'2.25vh'}}></img>
+            <img src='./assets/gym.png' style={{width: '20.01vh', height: '20.01vh', marginLeft:'2.07vh'}}></img>
               Mashouf
             </button>
           </div>
@@ -78,21 +86,21 @@ export default function home() {
         </div>
         {/* destination buttons */}
         <div id="set_destin" className=""
-        style={{position:'fixed', top:'52vh', right: '3vh', width: '74.25vh', height: '37.5vh'}}>
-          <p style={{marginBottom: '2.25vh'}}>Input your origin. Where are you now?</p>
+        style={{position:'fixed', top:'50vh', right: '3vh', width: '74.25vh', height: '37.5vh'}}>
+          <p style={{marginBottom: '2.25vh'}}>Input your destination. Where are you going?</p>
           <div style={{borderRadius: '5vh', outlineStyle: 'solid', outlineWidth: '0.5vh', outlineColor: 'rgb(139 92 246)',backgroundColor: 'rgb(232, 218, 255)'}}>
           <input id='search origin' style={{width: '69.75vh', borderStyle: 'solid', borderColor: 'black', borderWidth: '0.15vh', color: 'black', marginLeft:'2.25vh', marginTop: '2.25vh', marginBottom: '3vh', borderRadius: '5vh'}}></input>
           <div id='buttons' style={{width:'fill', color: 'black'}}>
             <button id='mary_ward' onClick={() => searchLocation(destination, maryWard)} style={{margin: '0.2vh', color: 'black',}}>
-              <img src='./assets/residential.png' style={{width: '21.75vh', height: '21.75vh', marginLeft:'2.25vh'}}></img>
+              <img src='./assets/residential.png' style={{width: '20.01vh', height: '20.01vh', marginLeft:'2.07vh'}}></img>
               Mary Ward
             </button>
             <button id='city_eats' onClick={() => searchLocation(destination, cityEats)} style={{margin: '0.2vh', color: 'black',}}>
-            <img src='./assets/dining.png' style={{width: '21.75vh', height: '21.75vh', marginLeft:'2.25vh'}}></img>
+            <img src='./assets/dining.png' style={{width: '20.01vh', height: '20.01vh', marginLeft:'2.07vh'}}></img>
               City Eats
             </button>
             <button id='mashouf' onClick={() => searchLocation(destination, cityEats)} style={{margin: '0.2vh', color: 'black',}}>
-            <img src='./assets/gym.png' style={{width: '21.75vh', height: '21.75vh', marginLeft:'2.25vh'}}></img>
+            <img src='./assets/gym.png' style={{width: '20.01vh', height: '20.01vh', marginLeft:'2.07vh'}}></img>
               Mashouf
             </button>
           </div>
