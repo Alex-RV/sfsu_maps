@@ -4,6 +4,11 @@ export default function Home() {
   const shouldSetBackground = true; 
   
   const dynamicBackgroundClass = shouldSetBackground ? 'bg-purple-#8b5cf6' : 'bg-purple-#8b5cf6';
+
+  const handleContinueAsGuest = () =>
+  {
+    console.log('Continue as guest clicked')
+  }
   
   return (
     <main className="min-h-screen flex items-center justify-center">
@@ -38,11 +43,13 @@ export default function Home() {
             </div>
             <div>
               <img src="https://public/assets/image1.png" alt="Google Logo"
-              className= "w-24 h-16 text-right ml-9" />
+              className= "w-24 h-16 text-right ml-96" />
             </div>
-            <div className="text-xl font-ramabhadra text-[#4ae7ff]  w-3/5 text-right ml-96 h-full">
+            <button className="text-xl font-ramabhadra text-[#4ae7ff]  w-3/5 text-right ml-96 h-full"
+            onClick={handleContinueAsGuest}>
+
               Continue as guest.
-            </div>
+              </button>
           </div>
         </div>
       </div>
