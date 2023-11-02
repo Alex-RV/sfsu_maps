@@ -72,6 +72,7 @@ export default function home() {
           <input id='search origin' style={{width: '64.17vh', borderStyle: 'solid', borderColor: 'black', borderWidth: '0.15vh', color: 'black', marginLeft:'2.07vh', marginTop: '2.07vh', marginBottom: '2.07vh', borderRadius: '5vh'}}></input>
           <div id='buttons' style={{width:'fill', color: 'black'}}>
             <button id='mary_ward' onClick={() => searchLocation(origin, maryWard)} style={{margin: '0.2vh', color: 'black',}}>
+              
               <img src='./assets/residential.png' style={{width: '20.01vh', height: '20.01vh', marginLeft:'2.07vh'}}></img>
               Mary Ward
             </button>

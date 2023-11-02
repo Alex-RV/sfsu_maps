@@ -1,10 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useSession, signIn, signOut } from "next-auth/react"
-import NextAuth from "next-auth"
-import GithubProvider from "next-auth/providers/github"
-
 
 export default function Home() {
   const shouldSetBackground = true; 
