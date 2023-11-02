@@ -59,6 +59,7 @@ export default function home() {
     </div> {/* END */}
     {/* home functions */}
     <div id="home functions" className="w-full h-screen bg-violet-900 ">
+      <img src='./assets/background.png' style={{width: '100vw', height:'100vh', opacity: '0.5'}}></img>
       {/* map space */}
       <div id="map"
       style={{borderRadius: '5vh', outlineStyle: 'solid', outlineWidth: '0.5vh', outlineColor: 'rgb(139 92 246)', position:'fixed', top:'7.5vh', left: '3vh',backgroundColor: 'white', width: '102vh', height: '90vh'}}>
@@ -109,7 +110,7 @@ export default function home() {
       </div>
       {/*Build Route button*/}
       <button id='build-route button'
-      style={{position: 'fixed', right: '3vh', top: '91.07vh', textAlign: 'center', borderRadius: '5vh', width: '68.31vh', height: '5vh', backgroundColor: 'lightblue'}}>
+      style={{color: 'black', borderColor: 'black', borderStyle: 'solid', borderWidth: '0.25vh', position: 'fixed', right: '3vh', top: '91.07vh', textAlign: 'center', borderRadius: '5vh', width: '68.31vh', height: '5vh', backgroundColor: 'rgb(66, 210, 255)'}}>
         build route
       </button>
     </div> {/* END home functions*/}
