@@ -1,16 +1,17 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useSession, signIn, signOut } from "next-auth/react"
+import NextAuth from "next-auth"
+import GithubProvider from "next-auth/providers/github"
+
 
 export default function Home() {
   const shouldSetBackground = true; 
   
   const dynamicBackgroundClass = shouldSetBackground ? 'bg-purple-#8b5cf6' : 'bg-purple-#8b5cf6';
 
-  const handleContinueAsGuest = () => {
-    console.log('Continue as guest clicked');
-  };
-  
+ 
   return (
     <>
       <main className={`min-h-screen items-center flex flex-col md:flex-row lg:flex-row bg-cover bg-center bg-no-repeat h-full w-full relative ${dynamicBackgroundClass}`}
@@ -18,10 +19,10 @@ export default function Home() {
         style={{ backgroundImage: `url('./assets/background.png')` }}>
         <div id="LogInPageRoot" className="flex flex-col items-center md:flex-row lg:flex-row w-full">
         <div className="text-4xl md:text-6xl lg:text-8xl font-ramabhadra text-white text-center md:text-left lg:text-left w-full md:w-1/2 lg:w-1/2 p-6 md:p-12 lg:p-12 whitespace-nowrap">
-  <h1 className="mb-2">Are you lost?</h1>
-  <h1 className="mb-2">It happens to</h1>
-  <h1>the best of us.</h1>
-</div>
+        <h1 className="mb-2">Are you lost?</h1>
+        <h1 className="mb-2">It happens to</h1>
+        <h1>the best of us.</h1>
+        </div>
 
           <div className='flex flex-col items-center md:ml-24 lg:ml-24 w-full md:w-1/2 lg:w-1/2 p-6 md:p-12 lg:p-12'>
             <div className='flex flex-row w-full items-center justify-center md:justify-start lg:justify-start mb-6 md:mb-0 lg:mb-0'>
@@ -33,7 +34,7 @@ export default function Home() {
             <div className='flex bg-white rounded-2xl w-full items-center justify-center p-3'>
               <Link href={'/login'} className='flex flex-row w-full items-center' style={{ whiteSpace: 'nowrap' }}>
                 <Image src={'./assets/google_logo.svg'} alt={''} width={50} height={50} />
-                <div className="ml-4 flex-1 ">
+                <div className="ml-4 flex-1 items-center">
                   <h1 className='font-semibold text-black text-lg md:text-2xl lg:text-2xl'>Sign in with Google</h1>
                 </div>
               </Link>
