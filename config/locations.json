@@ -1,0 +1,21 @@
+[
+    {
+      "name": "Mary Ward",
+      "longitude": 12,
+      "latitude": 12,
+      "image": "mary_ward_image.jpg"
+    },
+    {
+      "name": "City Eats",
+      "longitude": 16,
+      "latitude": 16,
+      "image": "city_eats_image.jpg"
+    },
+    {
+      "name": "Mashouf",
+      "longitude": 30,
+      "latitude": 30,
+      "image": "mashouf_image.jpg"
+    }
+  ]
+  
