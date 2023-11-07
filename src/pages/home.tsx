@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import locationsData from '../../config/locations.json';
 import Image from 'next/image';
+import Map from '../../components/Map';
 
 export default function Home() {
   const [origin, setOrigin] = useState<Location | null>(null);
   const [destination, setDestination] = useState<Location | null>(null);
   const [searchResultsOrigin, setSearchResultsOrigin] = useState<Location[]>(locationsData);
   const [searchResultsDestination, setSearchResultsDestination] = useState<Location[]>(locationsData);
+  const [buildRouteTrigger, setBuildRouteTrigger] = useState(false);
 
   interface Location {
     name: string;
@@ -42,6 +44,7 @@ export default function Home() {
       setDestination(location);
     }
   };
+  
   return (
     <div>
     <div id="control-bar" className="w-full flex flex-row bg-[#A267FF] h-16  items-center">
@@ -52,7 +55,18 @@ export default function Home() {
     <div id="home-functions" className="w-full h-full bg-violet-900 flex lg:flex-row md:flex-row flex-col-reverse justify-between" style={{ backgroundImage: `url('./assets/background.png')` }}>
       {/* <img src="./assets/background.png" className="w-full h-full opacity-50" alt="background" /> */}
 
-      <div id="map" className="rounded-3xl border-2 border-purple-500 mt-10 ml-10 w-2/3 bg-white"></div>
+      <div className="rounded-3xl border-2 border-purple-500 mt-10 ml-10 w-2/3 bg-white">
+      <Map
+        originLat={origin?.latitude || 0}
+        originLng={origin?.longitude || 0}
+        destinationLat={destination?.latitude || 0}
+        destinationLng={destination?.longitude || 0}
+        buildRouteTrigger={buildRouteTrigger}
+        setBuildRouteTrigger={setBuildRouteTrigger}
+      />
+
+      </div>
+      
       <div className='flex flex-col mt-5 mr-5 w-1/3 ml-5'>
         <div id="set-origin" className=" flex flex-col my-7">
           <p className="text-xl mb-4 text-white">Input your origin. Where are you now?</p>
@@ -65,7 +79,7 @@ export default function Home() {
             />
             <div className="flex flex-row overflow-x-scroll ">
             {searchResultsOrigin.map((location: Location) => (
-              <button key={location.name} id={location.image} onClick={() => selectLocation(location, false)} className="flex w-32 items-center p-2 m-2 flex-col flex-shrink-0">
+              <button key={location.name} id={location.image} onClick={() => selectLocation(location, true)} className="flex w-32 items-center p-2 m-2 flex-col flex-shrink-0">
                 <Image width={500} height={500} src={`/assets/${location.image}`} alt={location.name} className="w-20 h-20 mr-2" />
                 <h1 className='text-black'> {location.name} </h1>
               </button>
@@ -96,11 +110,12 @@ export default function Home() {
         <div className='items-center justify-center flex'>
         <button
           id="build-route-button"
-          className="bg-[#42D2FF] text-black  border-black border-2 rounded-3xl p-2  w-96"
+          className="bg-blue-400 text-black  border-black border-2 rounded-3xl p-2  w-96"
+          onClick={() => setBuildRouteTrigger(true)}
         >
           Build Route
         </button>
-        </div>
+    </div>
     </div>
     </div>
     </div>
