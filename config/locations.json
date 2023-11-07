@@ -1,21 +1,39 @@
 [
     {
       "name": "Mary Ward",
-      "longitude": 12,
-      "latitude": 12,
-      "image": "mary_ward_image.jpg"
+      "longitude": -122.47684565585695,
+      "latitude": 37.72190204203244,
+      "image": "residential.png"
     },
     {
       "name": "City Eats",
-      "longitude": 16,
-      "latitude": 16,
-      "image": "city_eats_image.jpg"
+      "longitude": -122.48173155228987,
+      "latitude": 37.72302760931965,
+      "image": "dining.png"
     },
     {
       "name": "Mashouf",
       "longitude": 30,
       "latitude": 30,
-      "image": "mashouf_image.jpg"
+      "image": "gym.png"
+    },
+    {
+      "name": "Mary ",
+      "longitude": 12,
+      "latitude": 12,
+      "image": "residential.png"
+    },
+    {
+      "name": "City ",
+      "longitude": 16,
+      "latitude": 16,
+      "image": "dining.png"
+    },
+    {
+      "name": "Mashouf gym",
+      "longitude": 30,
+      "latitude": 30,
+      "image": "gym.png"
     }
   ]
   

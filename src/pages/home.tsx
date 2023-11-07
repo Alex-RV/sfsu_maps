@@ -1,68 +1,70 @@
-import React from 'react'
+import React, { useState } from 'react';
+import locationsData from '../../config/locations.json';
+import Image from 'next/image';
+import Map from '../../components/Map';
 
-export default function home() {
+export default function Home() {
+  const [origin, setOrigin] = useState<Location | null>(null);
+  const [destination, setDestination] = useState<Location | null>(null);
+  const [searchResultsOrigin, setSearchResultsOrigin] = useState<Location[]>(locationsData);
+  const [searchResultsDestination, setSearchResultsDestination] = useState<Location[]>(locationsData);
+  const [buildRouteTrigger, setBuildRouteTrigger] = useState(false);
 
-
-  class Location {
-    name : string;
+  interface Location {
+    name: string;
     longitude: number;
-    langitude: number;
-    //constructor
-    constructor(name : string, long : number, lang : number){
-      this.name = name;
-      this.longitude = long;
-      this.langitude = lang;
-    }
-    //getters and setters
-    getName(){return this.name;}
-    getLongitude(){return this.longitude;}
-    getLangitude(){return this.langitude;}
-    setCoordinate(long : number, lang : number){
-      this.longitude = long;
-      this.langitude = lang;
-    }
+    latitude: number;
+    image: string;
   }
 
-  let origin = new Location('origin', 0, 0);
-  let destination = new Location('destination', 0, 0);
+ 
+  const searchLocationsOrigin = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value;
+    const results = locationsData.filter((location) =>
+      location.name.toLowerCase().includes(inputValue.toLowerCase())
+    );
+    setSearchResultsOrigin(results);
+  };
+  
 
-  let maryWard = new Location('mary ward', 12, 12);
-  let cityEats = new Location('city eats', 16, 16);
-  let mashouf = new Location('mashouf', 30, 30);
+  const searchLocationsDestination = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value;
+    const results = locationsData.filter((location) =>
+      location.name.toLowerCase().includes(inputValue.toLowerCase())
+    );
+    console.log(results)
+    setSearchResultsDestination(results);
+  };
 
-  let locations : Array<Location> = [maryWard, cityEats, mashouf];
-
-  function searchLocation (oldLocation: Location, newLocation : Location) {
-    for(let i = 0; i < locations.length; i++){
-      let currLoc = locations[i].getName();
-      if(currLoc == newLocation.getName()){
-        oldLocation = newLocation;
-        console.log(oldLocation.getName() + " => " + newLocation.getName());
-      }
+  // Function to set the origin or destination based on the selected location
+  const selectLocation = (location: Location, isOrigin: boolean) => {
+    if (isOrigin) {
+      setOrigin(location);
+    } else {
+      setDestination(location);
     }
-  }
-
-  function searchLocationByName(oldLocation : Location, name : string){
-    for(let i = 0; i < locations.length; i++){
-      if(locations[i].getName() == name){
-        oldLocation = locations[i];
-      }
-    }
-  }
-
+  };
+  
   return (
-    //contol bar
-    <div id="contol bar" className="w-full fixed top-0 left-0" style={{backgroundColor: 'rgb(162, 103, 255)', height:'5vh'}}>
-      <div id="logo and title" className="flex items-left">
-        <img src='./assets/gator_logo.png' style={{position: 'relative', left: '3.2vh', top: '0', width: '5vh', height: '5vh'}}  alt="gatorlogo"/>
-        <div id ="title" style={{position: 'relative', left: '4vh', top: '0', fontSize:'3vh'}}>SF_Maps</div>
-    </div> {/* END */}
-    {/* home functions */}
-    <div id="home functions" className="w-full h-screen bg-violet-900 ">
-      <img src='./assets/background.png' style={{width: '100vw', height:'100vh', opacity: '0.5'}}></img>
-      {/* map space */}
-      <div id="map"
-      style={{borderRadius: '5vh', outlineStyle: 'solid', outlineWidth: '0.5vh', outlineColor: 'rgb(139 92 246)', position:'fixed', top:'7.5vh', left: '3vh',backgroundColor: 'white', width: '102vh', height: '90vh'}}>
+    <div>
+    <div id="control-bar" className="w-full flex flex-row bg-[#A267FF] h-16  items-center">
+      <img src="./assets/gator_logo.png" className="w-16 h-16 ml-4" alt="gatorlogo" />
+      <div id="title" className="text-3xl ml-4 text-white">SF_Maps</div>
+    </div>
+
+    <div id="home-functions" className="w-full h-full bg-violet-900 flex lg:flex-row md:flex-row flex-col-reverse justify-between" style={{ backgroundImage: `url('./assets/background.png')` }}>
+      {/* <img src="./assets/background.png" className="w-full h-full opacity-50" alt="background" /> */}
+
+      <div className="rounded-3xl border-2 border-purple-500 mt-10 ml-10 w-2/3 bg-white">
+      <Map
+        originLat={origin?.latitude || 0}
+        originLng={origin?.longitude || 0}
+        destinationLat={destination?.latitude || 0}
+        destinationLng={destination?.longitude || 0}
+        buildRouteTrigger={buildRouteTrigger}
+        setBuildRouteTrigger={setBuildRouteTrigger}
+      />
+
       </div>
       {/* origin buttons */}
       <div id="set_origin" className=""
@@ -72,7 +74,6 @@ export default function home() {
           <input id='search origin' style={{width: '64.17vh', borderStyle: 'solid', borderColor: 'black', borderWidth: '0.15vh', color: 'black', marginLeft:'2.07vh', marginTop: '2.07vh', marginBottom: '2.07vh', borderRadius: '5vh'}}></input>
           <div id='buttons' style={{width:'fill', color: 'black'}}>
             <button id='mary_ward' onClick={() => searchLocation(origin, maryWard)} style={{margin: '0.2vh', color: 'black',}}>
-              
               <img src='./assets/residential.png' style={{width: '20.01vh', height: '20.01vh', marginLeft:'2.07vh'}}></img>
               Mary Ward
             </button>
@@ -86,35 +87,37 @@ export default function home() {
             </button>
           </div>
         </div>
-      </div>
-      {/* destination buttons */}
-      <div id="set_destin" className=""
-      style={{position:'fixed', top:'48vh', right: '3vh', width: '68.31vh', height: '34.5vh'}}>
-          <p style={{fontSize: '2.5vh', marginBottom: '2.25vh'}}>Input your destination. Where are you going?</p>
-          <div style={{borderRadius: '5vh', outlineStyle: 'solid', outlineWidth: '0.5vh', outlineColor: 'rgb(139 92 246)',backgroundColor: 'rgb(232, 218, 255)'}}>
-          <input id='search origin' style={{width: '64.17vh', borderStyle: 'solid', borderColor: 'black', borderWidth: '0.15vh', color: 'black', marginLeft:'2.25vh', marginTop: '2.25vh', marginBottom: '3vh', borderRadius: '5vh'}}></input>
-          <div id='buttons' style={{width:'fill', color: 'black'}}>
-            <button id='mary_ward' onClick={() => searchLocation(destination, maryWard)} style={{margin: '0.2vh', color: 'black',}}>
-              <img src='./assets/residential.png' style={{width: '20.01vh', height: '20.01vh', marginLeft:'2.07vh'}}></img>
-              Mary Ward
-            </button>
-            <button id='city_eats' onClick={() => searchLocation(destination, cityEats)} style={{margin: '0.2vh', color: 'black',}}>
-            <img src='./assets/dining.png' style={{width: '20.01vh', height: '20.01vh', marginLeft:'2.07vh'}}></img>
-              City Eats
-            </button>
-            <button id='mashouf' onClick={() => searchLocation(destination, cityEats)} style={{margin: '0.2vh', color: 'black',}}>
-            <img src='./assets/gym.png' style={{width: '20.01vh', height: '20.01vh', marginLeft:'2.07vh'}}></img>
-              Mashouf
-            </button>
+
+        <div id="set-destination" className=" flex flex-col my-7">
+          <p className="text-xl mb-4 text-white">Input your destination. Where are you going?</p>
+          <div className="rounded-3xl border-2 border-purple-500 bg-[#E8DAFF] p-4">
+          <input
+              id="search-dest"
+              className="w-full border border-black p-2 mb-4 rounded-3xl"
+              placeholder="Search destination"
+              onChange={searchLocationsDestination}
+            />
+            <div className="flex flex-row overflow-x-auto ">
+            {searchResultsDestination.map((location: Location) => (
+              <button key={location.name} id={location.image} onClick={() => selectLocation(location, false)} className="flex w-32 items-center p-2 m-2 flex-col flex-shrink-0">
+                <Image width={500} height={500} src={`/assets/${location.image}`} alt={location.name} className="w-20 h-20 mr-2" />
+                <h1 className='text-black'>{location.name}</h1>
+              </button>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-      {/*Build Route button*/}
-      <button id='build-route button'
-      style={{color: 'black', borderColor: 'black', borderStyle: 'solid', borderWidth: '0.25vh', position: 'fixed', right: '3vh', top: '91.07vh', textAlign: 'center', borderRadius: '5vh', width: '68.31vh', height: '5vh', backgroundColor: 'rgb(66, 210, 255)'}}>
-        build route
-      </button>
-    </div> {/* END home functions*/}
-  </div>
-)
+        <div className='items-center justify-center flex'>
+        <button
+          id="build-route-button"
+          className="bg-blue-400 text-black  border-black border-2 rounded-3xl p-2  w-96"
+          onClick={() => setBuildRouteTrigger(true)}
+        >
+          Build Route
+        </button>
+    </div>
+    </div>
+    </div>
+    </div>
+  );
 }
