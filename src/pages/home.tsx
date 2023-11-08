@@ -66,25 +66,25 @@ export default function Home() {
       />
 
       </div>
-      {/* origin buttons */}
-      <div id="set_origin" className=""
-      style={{fontSize: '2.5vh', position:'fixed', top:'7.5vh', right: '3vh', width: '68.31vh', height: '34.5vh'}}>
-          <p style={{marginBottom: '2.07vh'}}>Input your origin. Where are you now?</p>
-          <div style={{borderRadius: '5vh', outlineStyle: 'solid', outlineWidth: '0.5vh', outlineColor: 'rgb(139 92 246)',backgroundColor: 'rgb(232, 218, 255)'}}>
-          <input id='search origin' style={{width: '64.17vh', borderStyle: 'solid', borderColor: 'black', borderWidth: '0.15vh', color: 'black', marginLeft:'2.07vh', marginTop: '2.07vh', marginBottom: '2.07vh', borderRadius: '5vh'}}></input>
-          <div id='buttons' style={{width:'fill', color: 'black'}}>
-            <button id='mary_ward' onClick={() => searchLocation(origin, maryWard)} style={{margin: '0.2vh', color: 'black',}}>
-              <img src='./assets/residential.png' style={{width: '20.01vh', height: '20.01vh', marginLeft:'2.07vh'}}></img>
-              Mary Ward
-            </button>
-            <button id='city_eats' onClick={() => searchLocation(origin, cityEats)} style={{margin: '0.2vh', color: 'black',}}>
-            <img src='./assets/dining.png' style={{width: '20.01vh', height: '20.01vh', marginLeft:'2.07vh'}}></img>
-              City Eats
-            </button>
-            <button id='mashouf' onClick={() => searchLocation(origin, cityEats)} style={{margin: '0.2vh', color: 'black',}}>
-            <img src='./assets/gym.png' style={{width: '20.01vh', height: '20.01vh', marginLeft:'2.07vh'}}></img>
-              Mashouf
-            </button>
+      
+      <div className='flex flex-col mt-5 mr-5 w-1/3 ml-5'>
+        <div id="set-origin" className=" flex flex-col my-7">
+          <p className="text-xl mb-4 text-white">Input your origin. Where are you now?</p>
+          <div className="rounded-3xl border-2 border-purple-500 bg-[#E8DAFF] p-4">
+            <input
+              id="search-origin"
+              className="w-full border border-black p-2 mb-4 rounded-3xl text-black"
+              placeholder="Search origin"
+              onChange={searchLocationsOrigin}
+            />
+            <div className="flex flex-row overflow-x-scroll ">
+            {searchResultsOrigin.map((location: Location) => (
+              <button key={location.name} id={location.image} onClick={() => selectLocation(location, true)} className="flex w-32 items-center p-2 m-2 flex-col flex-shrink-0">
+                <Image width={500} height={500} src={`/assets/${location.image}`} alt={location.name} className="w-20 h-20 mr-2" />
+                <h1 className='text-black'> {location.name} </h1>
+              </button>
+              ))}
+            </div>
           </div>
         </div>
 
