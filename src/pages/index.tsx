@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Children } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Providers from '../../components/Providers';
+import { ChildProcess } from 'child_process';
 
 export default function Home() {
   const shouldSetBackground = true; 
@@ -41,3 +43,4 @@ export default function Home() {
     </>
   );
 }
+

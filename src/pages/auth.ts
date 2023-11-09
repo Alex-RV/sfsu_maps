@@ -2,10 +2,10 @@ import {  NextAuthOptions} from "next-auth";
 import { useSession } from "next-auth/react";
 import { Redirect } from "next";
 import GoogleProvider from "next-auth/providers/google";
-
+import NextAuth from 'next-auth';
 import CredentialsProvider  from "next-auth/providers/credentials";
 
-export const authConfig: NextAuthOptions = {
+ const authConfig: NextAuthOptions = {
     providers:
 [
     GoogleProvider({
@@ -13,4 +13,6 @@ export const authConfig: NextAuthOptions = {
         clientSecret: process.env.GOOGLE_CLIENT_SECRET!
       }),
 ],
+
 };
+export {authConfig as GET, authConfig as POST};
