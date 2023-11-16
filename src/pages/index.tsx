@@ -7,9 +7,13 @@ import { signIn, useSession } from 'next-auth/react';
 
 export default function Home() {
   const shouldSetBackground = true; 
-  
   const dynamicBackgroundClass = shouldSetBackground ? 'bg-purple-#8b5cf6' : 'bg-purple-#8b5cf6';
 
+  const { data: session, status } = useSession();
+
+  const handleSignIn = () => {
+    signIn('google', { callbackUrl: '/home' });
+  };
  
   return (
     <>
@@ -32,17 +36,16 @@ export default function Home() {
             </div>
             <div className='flex bg-white rounded-2xl w-full items-center justify-center p-3'>
             <form>
-              <Link href={'/home'}>
+              
             <button type="button" onClick={() => signIn('google')} className='flex flex-row w-full items-center' style={{ whiteSpace: 'nowrap' }}>
               <Image src={'./assets/google_logo.svg'} alt={''} width={50} height={50} />
               <div className="ml-4 flex-1 items-center">
-                
                 <h1 className='font-semibold text-black text-lg md:text-2xl lg:text-2xl'>Sign in with Google</h1>
                 
               </div>
               
             </button>
-            </Link>
+            
             </form>
             </div>
 
