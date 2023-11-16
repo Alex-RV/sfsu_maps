@@ -46,13 +46,13 @@ export default function Home() {
   };
   
   return (
-    <div className='h-full'>
-     <div id="control-bar" className="w-full flex flex-row bg-[#A267FF] h-16  items-center">
+    <div className='min-h-screen bg-violet-900' style={{ backgroundImage: `url('./assets/background.png')`}}>
+     <div id="control-bar" className="w-full flex flex-row bg-[#A267FF] items-center">
        <img src="./assets/gator_logo.png" className="w-16 h-16 ml-4" alt="gatorlogo" />
        <div id="title" className="text-3xl ml-4 text-white">SF_Maps</div>
     </div>
 
-    <div id="home-functions" className="w-full h-auto bg-violet-900 flex lg:flex-row md:flex-row flex-col-reverse justify-between" style={{ backgroundImage: `url('./assets/background.png')`}}>
+    <div id="home-functions" className="w-full flex lg:flex-row md:flex-row flex-col-reverse justify-between">
       {/* <img src="./assets/background.png" className="w-full h-full opacity-50" alt="background" /> */}
 
       <div className="rounded-3xl border-2 border-purple-500 mt-10 ml-10 w-2/3 bg-white overflow-x-scroll grid">
