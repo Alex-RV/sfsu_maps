@@ -36,7 +36,7 @@ export default function Home() {
     setSearchResultsDestination(results);
   };
 
-  // Function to set the origin or destination based on the selected location
+  // Function to set the origin or destination based on the selected location  
   const selectLocation = (location: Location, isOrigin: boolean) => {
     if (isOrigin) {
       setOrigin(location);
