@@ -1,18 +1,25 @@
-import React, { Children } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Providers from '../../components/Providers';
-import { ChildProcess } from 'child_process';
 import { signIn, useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 export default function Home() {
   const shouldSetBackground = true; 
   const dynamicBackgroundClass = shouldSetBackground ? 'bg-purple-#8b5cf6' : 'bg-purple-#8b5cf6';
 
   const { data: session, status } = useSession();
+  const router = useRouter();
 
-  const handleSignIn = () => {
-    signIn('google', { callbackUrl: '/home' });
+  const handleSignIn = async () => {
+    const result = await signIn('google', { callbackUrl: '/home' });
+    if (result?.error) {
+      // Handle sign-in error if needed
+      console.error('Sign-in failed:', result.error);
+    } else {
+      // Redirect to home page after successful sign-in
+      router.push('/home');
+    }
   };
  
   return (
@@ -37,7 +44,7 @@ export default function Home() {
             <div className='flex bg-white rounded-2xl w-full items-center justify-center p-3'>
             <form>
               
-            <button type="button" onClick={() => signIn('google')} className='flex flex-row w-full items-center' style={{ whiteSpace: 'nowrap' }}>
+            <button type="button" onClick={(handleSignIn) => signIn('google')} className='flex flex-row w-full items-center' style={{ whiteSpace: 'nowrap' }}>
               <Image src={'./assets/google_logo.svg'} alt={''} width={50} height={50} />
               <div className="ml-4 flex-1 items-center">
                 <h1 className='font-semibold text-black text-lg md:text-2xl lg:text-2xl'>Sign in with Google</h1>
@@ -60,5 +67,6 @@ export default function Home() {
       </main>
     </>
   );
-}
+  };
+
 
