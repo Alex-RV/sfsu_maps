@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import locationsData from '../../config/locations.json';
 import Image from 'next/image';
 import Map from '../../components/Map';
+import Link from 'next/link'; 
 
 export default function Home() {
   const [origin, setOrigin] = useState<Location | null>(null);
@@ -46,11 +47,24 @@ export default function Home() {
   };
   
   return (
+
     <div className='min-h-screen bg-violet-900' style={{ backgroundImage: `url('./assets/background.png')`}}>
-     <div id="control-bar" className="w-full flex flex-row bg-[#A267FF] items-center">
+     <div id="control-bar" className="w-full flex flex-row bg-[#A267FF] items-center justify-between">
+      <div className='flex items-center'>
        <img src="./assets/gator_logo.png" className="w-16 h-16 ml-4" alt="gatorlogo" />
        <div id="title" className="text-3xl ml-4 text-white">SF_Maps</div>
     </div>
+
+    {/* log out button */}
+    <div id="log out" className=" text-right items-center mr-4 text-3xl text-white">
+
+      <Link href={`http://localhost:3000`}>
+    <h1> 
+        Log out 
+      </h1>
+      </Link>
+      </div>
+      </div>
 
     <div id="home-functions" className="w-full flex lg:flex-row md:flex-row flex-col-reverse justify-between">
       {/* <img src="./assets/background.png" className="w-full h-full opacity-50" alt="background" /> */}
