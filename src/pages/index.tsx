@@ -37,6 +37,13 @@ export default function Home() {
                 </div>
               </Link>
             </div>
+
+          <div>   
+            <Link href={'/home'}>
+          <h1 className=' text-cyan-100 mr-96 text-xl'>Continue as guest</h1>
+          </Link>
+          </div>
+           
           </div>
         </div>
       </main>
