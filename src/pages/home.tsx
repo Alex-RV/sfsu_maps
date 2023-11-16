@@ -58,7 +58,7 @@ export default function Home() {
     {/* log out button */}
     <div id="log out" className=" text-right items-center mr-4 text-3xl text-white">
 
-      <Link href={`http://localhost:3000`}>
+      <Link href={`https://sfsu-maps.vercel.app`}>
     <h1> 
         Log out 
       </h1>
