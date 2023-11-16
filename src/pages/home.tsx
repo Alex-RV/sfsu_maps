@@ -80,7 +80,7 @@ export default function Home() {
             <div className="flex flex-row overflow-x-scroll ">
             {searchResultsOrigin.map((location: Location) => (
               <button key={location.name} id={location.image} onClick={() => selectLocation(location, true)} className="flex w-32 items-center p-2 m-2 flex-col flex-shrink-0">
-                <Image width={500} height={500} src={`/assets/${location.image}`} alt={location.name} className="w-20 h-20 mr-2" />
+                <Image width={500} height={500} src={`/assets/${location.image}`} alt={location.name} className={`w-20 h-20 mr-2 rounded-full ${origin === location ? 'ring-2 ring-red-800' : ''}`} />
                 <h1 className='text-black'> {location.name} </h1>
               </button>
               ))}
@@ -100,7 +100,7 @@ export default function Home() {
             <div className="flex flex-row overflow-x-auto ">
             {searchResultsDestination.map((location: Location) => (
               <button key={location.name} id={location.image} onClick={() => selectLocation(location, false)} className="flex w-32 items-center p-2 m-2 flex-col flex-shrink-0">
-                <Image width={500} height={500} src={`/assets/${location.image}`} alt={location.name} className="w-20 h-20 mr-2" />
+                <Image width={500} height={500} src={`/assets/${location.image}`} alt={location.name} className={`w-20 h-20 mr-2 rounded-full ${destination === location ? 'ring-2 ring-red-800' : ''}`} />
                 <h1 className='text-black'>{location.name}</h1>
               </button>
               ))}
