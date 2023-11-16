@@ -27,13 +27,13 @@
       "name": "Library",
       "longitude": -122.478021      ,
       "latitude": 37.721213,
-      "image": ""
+      "image": "library.png"
     },
     {
       "name": "Business building",
       "longitude": -122.476736,
       "latitude": 37.722067,
-      "image": ""
+      "image": "b_let.png"
     },
     {
       "name": "Humanities",
@@ -45,115 +45,115 @@
       "name": "Thornton hall",
       "longitude": -122.476870,
       "latitude": 37.723984,
-      "image": ""
+      "image": "t_let.png"
     },
     {
       "name": "Hensill hall",
       "longitude": -122.476101,
       "latitude": 37.723546,
-      "image": ""
+      "image": "h_let.png"
     },
     {
       "name": "Towers",
       "longitude": -122.481981,
       "latitude": 37.723758,
-      "image": ""
+      "image": "residential.png"
     },
     {
       "name": "Village ",
       "longitude": -122.482313 ,
       "latitude": 37.723521 ,
-      "image": "  "
+      "image": "residential.png"
     },
     {
       "name": "Manzanita Square ",
       "longitude": -122.476830 ,
       "latitude": 37.720419 ,
-      "image": "  "
+      "image": "residential.png"
     },
     {
       "name": "Administration Building ",
       "longitude": -122.476560 ,
       "latitude": 37.721175 ,
-      "image": "  "
+      "image": "office.png"
     },
     {
-      "name": " Cafe Rosso",
+      "name": "Cafe Rosso",
       "longitude": -122.480299 ,
       "latitude": 37.722834 ,
-      "image": "  "
+      "image": "dining.png"
     },
     {
-      "name": " Gymnasium",
+      "name": "Gymnasium",
       "longitude":-122.478268  ,
       "latitude": 37.723640 ,
-      "image": "  "
+      "image": "gym.png"
     },
     {
       "name": "Student Service ",
       "longitude": -122.480990 ,
       "latitude":  37.723357,
-      "image": "  "
+      "image": "office.png"
     },
     {
       "name": "SFSU tennis courts ",
       "longitude":-122.483397 ,
       "latitude": 37.725602 ,
-      "image": "  "
+      "image": "gym.png"
     },
     {
-      "name": " Maloney field",
+      "name": "Maloney field",
       "longitude": -122.482194 ,
       "latitude":37.724932  ,
-      "image": "  "
+      "image": "gym.png"
     },
     {
       "name": "Parking garage ",
       "longitude": -122.480916 ,
       "latitude": 37.724669 ,
-      "image": "  "
+      "image": "parking.png"
     },
     {
-      "name": " Cox stadium",
+      "name": "Cox stadium",
       "longitude": -122.478429 ,
       "latitude":37.724624  ,
-      "image": "  "
+      "image": "gym.png"
     },
     {
       "name": "Burk hall ",
       "longitude":-122.478987  ,
       "latitude": 37.722749 ,
-      "image": "  "
+      "image": "b_let.png"
     },
     {
       "name": "HSS ",
       "longitude": -122.476097 ,
       "latitude": 37.721851 ,
-      "image": "  "
+      "image": "h_let.png"
     },
     {
       "name": "Science building ",
       "longitude": -122.476572 ,
       "latitude": 37.722999 ,
-      "image": "  "
+      "image": "s_let.png"
     },
     {
-      "name": " University Park North",
+      "name": "University Park North",
       "longitude": -122.476336 ,
       "latitude":  37.725147,
-      "image": "  "
+      "image": "residential.png"
     },
     {
-      "name": " Marcus hall",
+      "name": "Marcus hall",
       "longitude": -122.481049 ,
       "latitude":37.721435  ,
-      "image": "  "
+      "image": "m_let.png"
     },
     {
-      "name": " Sfsu Police Department",
+      "name": "Sfsu Police Department",
       "longitude": -122.481868 ,
       "latitude":37.726041  ,
-      "image": "  "
+      "image": "police.png"
     }
 
 

@@ -93,7 +93,7 @@ export default function Home() {
           <div className="rounded-3xl border-2 border-purple-500 bg-[#E8DAFF] p-4">
           <input
               id="search-dest"
-              className="w-full border border-black p-2 mb-4 rounded-3xl"
+              className="w-full border border-black p-2 mb-4 rounded-3xl text-black"
               placeholder="Search destination"
               onChange={searchLocationsDestination}
             />
