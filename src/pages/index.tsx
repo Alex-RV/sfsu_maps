@@ -8,16 +8,23 @@ export default function Home() {
   const shouldSetBackground = true; 
   const dynamicBackgroundClass = shouldSetBackground ? 'bg-purple-#8b5cf6' : 'bg-purple-#8b5cf6';
   const router = useRouter();
+  const { data: session } = useSession();
   const handleSignIn = async () => {
-    const result = await signIn('google', { callbackUrl: '/home' });
-    if (result?.error) {
-      // Handle sign-in error if needed
-      console.error('Sign-in failed:', result.error);
-    } else {
-      // Redirect to home page after successful sign-in
-      router.push('/home');
+    console.log('clicked');
+    try {
+      const result = await signIn('google');
+      if (result?.error) {
+        console.error('Sign-in error:', result.error);
+      }
+    } catch (error) {
+      console.error('Sign-in caught an error:', error);
     }
   };
+
+  if (session) {
+    router.push('/home');
+    return null;
+  }
     return (
     <>
      
@@ -38,17 +45,15 @@ export default function Home() {
                 <h1 className="text-xl md:text-3xl lg:text-4xl xl:text-5xl font-roboto-mono font-medium text-[#ff9d5b]">SF_MAPS</h1>
               </div>
             </div>
-            <div className='flex bg-white rounded-2xl w-full items-center justify-center p-3'>
-            <form>
+            <button type="button" onClick={() => handleSignIn()} className='flex bg-white rounded-2xl w-full items-center justify-center p-3'>
               
-            <button type="button" onClick={(handleSignIn) => signIn('google')} className='flex flex-row w-full items-center' style={{ whiteSpace: 'nowrap' }}>
+            <div className='flex flex-row w-full items-center' style={{ whiteSpace: 'nowrap' }}>
               <Image src={'./assets/google_logo.svg'} alt={''} width={50} height={50} />
               <div className="ml-4 flex-1 items-center">
                 <h1 className='font-semibold text-black text-lg md:text-2xl lg:text-2xl'>Sign in with Google</h1>
               </div>
-            </button>
-            </form>
             </div>
+            </button>
           <div>   
             <Link href={'/home'}>
           <h1 className=' text-cyan-100 mr-96 text-xl'>Continue as guest</h1>
