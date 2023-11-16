@@ -1,39 +1,161 @@
 [
     {
       "name": "Mary Ward",
-      "longitude": -122.47684565585695,
-      "latitude": 37.72190204203244,
+      "longitude": -122.483589,
+      "latitude": 37.723561,
       "image": "residential.png"
     },
     {
       "name": "City Eats",
-      "longitude": -122.48173155228987,
-      "latitude": 37.72302760931965,
+      "longitude": -122.483062,
+      "latitude": 37.723725,
       "image": "dining.png"
     },
     {
-      "name": "Mashouf",
-      "longitude": 30,
-      "latitude": 30,
+      "name": "Mashouf Wellness Center",
+      "longitude": -122.484298,
+      "latitude": 37.722528,
       "image": "gym.png"
     },
     {
-      "name": "Mary ",
-      "longitude": 12,
-      "latitude": 12,
+      "name": "Mary Park",
+      "longitude": -122.484357,
+      "latitude": 37.724234,
       "image": "residential.png"
     },
     {
-      "name": "City ",
-      "longitude": 16,
-      "latitude": 16,
+      "name": "Library",
+      "longitude": -122.478021      ,
+      "latitude": 37.721213,
+      "image": ""
+    },
+    {
+      "name": "Business building",
+      "longitude": -122.476736,
+      "latitude": 37.722067,
+      "image": ""
+    },
+    {
+      "name": "Humanities",
+      "longitude": -122.481433,
+      "latitude": 37.722132,
       "image": "dining.png"
     },
     {
-      "name": "Mashouf gym",
-      "longitude": 30,
-      "latitude": 30,
-      "image": "gym.png"
+      "name": "Thornton hall",
+      "longitude": -122.476870,
+      "latitude": 37.723984,
+      "image": ""
+    },
+    {
+      "name": "Hensill hall",
+      "longitude": -122.476101,
+      "latitude": 37.723546,
+      "image": ""
+    },
+    {
+      "name": "Towers",
+      "longitude": -122.481981,
+      "latitude": 37.723758,
+      "image": ""
+    },
+    {
+      "name": "Village ",
+      "longitude": -122.482313 ,
+      "latitude": 37.723521 ,
+      "image": "  "
+    },
+    {
+      "name": "Manzanita Square ",
+      "longitude": -122.476830 ,
+      "latitude": 37.720419 ,
+      "image": "  "
+    },
+    {
+      "name": "Administration Building ",
+      "longitude": -122.476560 ,
+      "latitude": 37.721175 ,
+      "image": "  "
+    },
+    {
+      "name": " Cafe Rosso",
+      "longitude": -122.480299 ,
+      "latitude": 37.722834 ,
+      "image": "  "
+    },
+    {
+      "name": " Gymnasium",
+      "longitude":-122.478268  ,
+      "latitude": 37.723640 ,
+      "image": "  "
+    },
+    {
+      "name": "Student Service ",
+      "longitude": -122.480990 ,
+      "latitude":  37.723357,
+      "image": "  "
+    },
+    {
+      "name": "SFSU tennis courts ",
+      "longitude":-122.483397 ,
+      "latitude": 37.725602 ,
+      "image": "  "
+    },
+    {
+      "name": " Maloney field",
+      "longitude": -122.482194 ,
+      "latitude":37.724932  ,
+      "image": "  "
+    },
+    {
+      "name": "Parking garage ",
+      "longitude": -122.480916 ,
+      "latitude": 37.724669 ,
+      "image": "  "
+    },
+    {
+      "name": " Cox stadium",
+      "longitude": -122.478429 ,
+      "latitude":37.724624  ,
+      "image": "  "
+    },
+    {
+      "name": "Burk hall ",
+      "longitude":-122.478987  ,
+      "latitude": 37.722749 ,
+      "image": "  "
+    },
+    {
+      "name": "HSS ",
+      "longitude": -122.476097 ,
+      "latitude": 37.721851 ,
+      "image": "  "
+    },
+    {
+      "name": "Science building ",
+      "longitude": -122.476572 ,
+      "latitude": 37.722999 ,
+      "image": "  "
+    },
+    {
+      "name": " University Park North",
+      "longitude": -122.476336 ,
+      "latitude":  37.725147,
+      "image": "  "
+    },
+    {
+      "name": " Marcus hall",
+      "longitude": -122.481049 ,
+      "latitude":37.721435  ,
+      "image": "  "
+    },
+    {
+      "name": " Sfsu Police Department",
+      "longitude": -122.481868 ,
+      "latitude":37.726041  ,
+      "image": "  "
     }
+
+
   ]
   
