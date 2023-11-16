@@ -46,25 +46,25 @@ export default function Home() {
   };
   
   return (
-    <div>
-    <div id="control-bar" className="w-full flex flex-row bg-[#A267FF] h-16  items-center">
-      <img src="./assets/gator_logo.png" className="w-16 h-16 ml-4" alt="gatorlogo" />
-      <div id="title" className="text-3xl ml-4 text-white">SF_Maps</div>
+    <div className='h-full'>
+     <div id="control-bar" className="w-full flex flex-row bg-[#A267FF] h-16  items-center">
+       <img src="./assets/gator_logo.png" className="w-16 h-16 ml-4" alt="gatorlogo" />
+       <div id="title" className="text-3xl ml-4 text-white">SF_Maps</div>
     </div>
 
-    <div id="home-functions" className="w-full h-full bg-violet-900 flex lg:flex-row md:flex-row flex-col-reverse justify-between" style={{ backgroundImage: `url('./assets/background.png')` }}>
+    <div id="home-functions" className="w-full h-auto bg-violet-900 flex lg:flex-row md:flex-row flex-col-reverse justify-between" style={{ backgroundImage: `url('./assets/background.png')`}}>
       {/* <img src="./assets/background.png" className="w-full h-full opacity-50" alt="background" /> */}
 
-      <div className="rounded-3xl border-2 border-purple-500 mt-10 ml-10 w-2/3 bg-white">
-      <Map
-        originLat={origin?.latitude || 0}
-        originLng={origin?.longitude || 0}
-        destinationLat={destination?.latitude || 0}
-        destinationLng={destination?.longitude || 0}
-        buildRouteTrigger={buildRouteTrigger}
-        setBuildRouteTrigger={setBuildRouteTrigger}
-      />
-
+      <div className="rounded-3xl border-2 border-purple-500 mt-10 ml-10 w-2/3 bg-white overflow-x-scroll grid">
+        <Map 
+          originLat={origin?.latitude || 0}
+          originLng={origin?.longitude || 0}
+          destinationLat={destination?.latitude || 0}
+          destinationLng={destination?.longitude || 0}
+          buildRouteTrigger={buildRouteTrigger}
+          setBuildRouteTrigger={setBuildRouteTrigger}
+         />
+      
       </div>
       
       <div className='flex flex-col mt-5 mr-5 w-1/3 ml-5'>
