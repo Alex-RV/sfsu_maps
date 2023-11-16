@@ -1,16 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { signIn, useSession } from 'next-auth/react';
+import { SessionProvider, signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 
 export default function Home() {
   const shouldSetBackground = true; 
   const dynamicBackgroundClass = shouldSetBackground ? 'bg-purple-#8b5cf6' : 'bg-purple-#8b5cf6';
-
-  const { data: session, status } = useSession();
   const router = useRouter();
-
   const handleSignIn = async () => {
     const result = await signIn('google', { callbackUrl: '/home' });
     if (result?.error) {
@@ -21,9 +18,9 @@ export default function Home() {
       router.push('/home');
     }
   };
- 
-  return (
+    return (
     <>
+     
       <main className={`min-h-screen items-center flex flex-col md:flex-row lg:flex-row bg-cover bg-center bg-no-repeat h-full w-full relative ${dynamicBackgroundClass}`}
         id="background"
         style={{ backgroundImage: `url('./assets/background.png')` }}>
@@ -48,14 +45,10 @@ export default function Home() {
               <Image src={'./assets/google_logo.svg'} alt={''} width={50} height={50} />
               <div className="ml-4 flex-1 items-center">
                 <h1 className='font-semibold text-black text-lg md:text-2xl lg:text-2xl'>Sign in with Google</h1>
-                
               </div>
-              
             </button>
-            
             </form>
             </div>
-
           <div>   
             <Link href={'/home'}>
           <h1 className=' text-cyan-100 mr-96 text-xl'>Continue as guest</h1>
@@ -63,9 +56,13 @@ export default function Home() {
           </div>
            
           </div>
+          
         </div>
+        
       </main>
+     
     </>
+    
   );
   };
 
