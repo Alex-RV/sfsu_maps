@@ -35,7 +35,9 @@ export default function Home() {
             <button type="button" onClick={() => signIn('google')} className='flex flex-row w-full items-center' style={{ whiteSpace: 'nowrap' }}>
               <Image src={'./assets/google_logo.svg'} alt={''} width={50} height={50} />
               <div className="ml-4 flex-1 items-center">
+                <Link href={'/home'}>
                 <h1 className='font-semibold text-black text-lg md:text-2xl lg:text-2xl'>Sign in with Google</h1>
+                </Link>
               </div>
             </button>
             </form>
