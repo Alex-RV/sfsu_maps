@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import locationsData from '../../config/locations.json';
 import Image from 'next/image';
 import Map from '../../components/Map';
 import Link from 'next/link'; 
+import { signOut } from "next-auth/react"
 
 export default function Home() {
   const [origin, setOrigin] = useState<Location | null>(null);
@@ -45,6 +46,9 @@ export default function Home() {
       setDestination(location);
     }
   };
+
+
+  // 
   
   return (
 
@@ -53,16 +57,15 @@ export default function Home() {
       <div className='flex items-center'>
        <img src="./assets/gator_logo.png" className="w-16 h-16 ml-4" alt="gatorlogo" />
        <div id="title" className="text-3xl ml-4 text-white">SF_Maps</div>
+         {/* Welcome name */}
+         <div className='ml-96'>
+
+         </div>
     </div>
 
     {/* log out button */}
     <div id="log out" className=" text-right items-center mr-4 text-3xl text-white">
-
-      <Link href={'/'}>
-    <h1> 
-        Log out 
-      </h1>
-      </Link>
+    <button type='button' onClick={() => signOut({callbackUrl:'/' })}>Sign out</button>
       </div>
       </div>
 
